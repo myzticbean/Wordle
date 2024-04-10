@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wordle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .square-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .row-space {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .play-again-btn-hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container text-center" style="width: 25rem;">
+        <div class="fs-1 fw-bold lh-lg text-lg-center">
+            Myztic's Wordle
+        </div>
+        <div>
+            <div class="row justify-content-center row-space" id="attempt1">
+                <div class="col-auto">
+                    <input id="textbox11" type="text" maxlength="1" onkeyup="moveCursor(event, 11)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox12" type="text" maxlength="1" onkeyup="moveCursor(event, 12)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox13" type="text" maxlength="1" onkeyup="moveCursor(event, 13)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox14" type="text" maxlength="1" onkeyup="moveCursor(event, 14)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox15" type="text" maxlength="1" onkeyup="moveCursor(event, 15)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+            </div>
+            <div class="row justify-content-center row-space" id="attempt2">
+                <div class="col-auto">
+                    <input id="textbox21" type="text" maxlength="1" onkeyup="moveCursor(event, 21)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox22" type="text" maxlength="1" onkeyup="moveCursor(event, 22)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox23" type="text" maxlength="1" onkeyup="moveCursor(event, 23)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox24" type="text" maxlength="1" onkeyup="moveCursor(event, 24)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox25" type="text" maxlength="1" onkeyup="moveCursor(event, 25)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+            </div>
+            <div class="row justify-content-center row-space" id="attempt3">
+                <div class="col-auto">
+                    <input id="textbox31" type="text" maxlength="1" onkeyup="moveCursor(event, 31)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox32" type="text" maxlength="1" onkeyup="moveCursor(event, 32)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox33" type="text" maxlength="1" onkeyup="moveCursor(event, 33)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox34" type="text" maxlength="1" onkeyup="moveCursor(event, 34)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox35" type="text" maxlength="1" onkeyup="moveCursor(event, 35)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+            </div>
+            <div class="row justify-content-center row-space" id="attempt4">
+                <div class="col-auto">
+                    <input id="textbox41" type="text" maxlength="1" onkeyup="moveCursor(event, 41)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox42" type="text" maxlength="1" onkeyup="moveCursor(event, 42)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox43" type="text" maxlength="1" onkeyup="moveCursor(event, 43)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox44" type="text" maxlength="1" onkeyup="moveCursor(event, 44)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox45" type="text" maxlength="1" onkeyup="moveCursor(event, 45)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+            </div>
+            <div class="row justify-content-center row-space" id="attempt5">
+                <div class="col-auto">
+                    <input id="textbox51" type="text" maxlength="1" onkeyup="moveCursor(event, 51)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox52" type="text" maxlength="1" onkeyup="moveCursor(event, 52)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox53" type="text" maxlength="1" onkeyup="moveCursor(event, 53)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox54" type="text" maxlength="1" onkeyup="moveCursor(event, 54)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+                <div class="col-auto">
+                    <input id="textbox55" type="text" maxlength="1" onkeyup="moveCursor(event, 55)" pattern="[a-zA-Z]" class="form-control square-input" />
+                </div>
+            </div>
+            <div class="text-center" style="padding-bottom: 2rem;">
+                <button type="button" id="checkBtn" class="btn btn-outline-success mt-3" onclick="checkWord()">Check</button>
+                <button type="button" id="playAgainBtn" class="btn btn-info mt-3 play-again-btn-hidden" onclick="playAgain()">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let attemptNum = 1;
+        const attempt1 = document.getElementById('attempt1');
+        const attempt2 = document.getElementById('attempt2');
+        const attempt3 = document.getElementById('attempt3');
+        const attempt4 = document.getElementById('attempt4');
+        const attempt5 = document.getElementById('attempt5');
+        const checkBtn = document.getElementById('checkBtn');
+        const playAgainBtn = document.getElementById('playAgainBtn');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page is loaded!');
+            doDOMLoadedStuff();
+        });
+
+        function doDOMLoadedStuff() {
+            playAgain();
+            // Your method implementation
+            decideAttemptDivToEnable();
+            document.getElementById('textbox11').focus();
+        }
+
+        function moveCursor(event, textboxNumber) {
+
+            decideAttemptDivToEnable();
+
+            const key = event.key;
+            const currentTextbox = document.getElementById(`textbox${textboxNumber}`);
+            const previousTextbox = document.getElementById(`textbox${textboxNumber - 1}`);
+            const nextTextbox = document.getElementById(`textbox${textboxNumber + 1}`);
+
+            if (!isNaN(key)) {
+                // if it is a number, empty the textbox
+                currentTextbox.value = '';
+            } else if (key.length === 1 && currentTextbox.value.length === 1) {
+                // valid input; make character upper case
+                currentTextbox.value = key.toUpperCase();
+                // if next textbox exists, move focus to the next one
+                if (nextTextbox) {
+                    nextTextbox.focus();
+                }
+            } else if (key === 'Backspace' && currentTextbox.value.length > 0) {
+                // if backspace pressed and textbox has something entered, then empty the textbox
+                currentTextbox.value = '';
+            } else if (key === 'Backspace' && currentTextbox.value.length === 0 && previousTextbox) {
+                // if backspace pressed and textbox has nothing entered and previous textbox exists,
+                // move cursor to previous textbox
+                previousTextbox.focus();
+            }
+            // prevent default event behavior
+            event.preventDefault();
+        }
+
+        function decideAttemptDivToEnable() {
+            if (attemptNum === 1) {
+                enableTextboxes(attempt1);
+            } else if (attemptNum === 2) {
+                enableTextboxes(attempt2);
+            } else if (attemptNum === 3) {
+                enableTextboxes(attempt3);
+            } else if (attemptNum === 4) {
+                enableTextboxes(attempt4);
+            } else if (attemptNum === 5) {
+                enableTextboxes(attempt5);
+            } else if(attemptNum > 5) {
+                disableAllTextboxes();
+                disableCheckBtnAndMakeRed();
+                // Show the play again button
+                displayPlayAgainBtn();
+            }
+        }
+
+        function enableTextboxes(attemptDiv) {
+            disableAllTextboxes();
+            const textboxesInAttempt = attemptDiv.querySelectorAll('.square-input');
+            textboxesInAttempt.forEach(textbox => {
+                textbox.disabled = false;
+            });
+        }
+
+        function disableAllTextboxes() {
+            const allTextboxes = document.querySelectorAll('.square-input');
+            allTextboxes.forEach(textbox => {
+                textbox.disabled = true;
+            });
+        }
+
+        function checkWord() {
+            const attemptDiv = document.getElementById(`attempt${attemptNum}`);
+            const textboxes = attemptDiv.querySelectorAll('input[type="text"]');
+            const userInput = [...textboxes].map(input => input.value.toUpperCase());
+            console.log(userInput);
+            console.log(JSON.stringify(userInput));
+            fetch('/check', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userInput)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    processResponse(data, attemptDiv);
+                });
+        }
+
+        function processResponse(data, attemptDiv) {
+            console.log(data);
+            const textboxesInAttempt = attemptDiv.querySelectorAll('.square-input');
+            let i = 0;
+            let correctCount = 0;
+            data.matchedCharacters.forEach(str => {
+                const txtbox = textboxesInAttempt[i];
+                if(str.toUpperCase() === txtbox.value) {
+                    makeTxtboxGreen(txtbox);
+                    correctCount++;
+                } else if (str === '-') {
+                    makeTxtboxYellow(txtbox);
+                } else if (str === '_') {
+                    makeTxtboxRed(txtbox);
+                }
+                i++;
+            })
+            if(data.allMatch === true || correctCount === 5) {
+                // if all five are correct, end the game
+                disableAllTextboxes();
+                disableCheckBtnAndMakeGreen();
+                // Show the play again button
+                displayPlayAgainBtn();
+            } else {
+                // increase the attempt count
+                attemptNum++;
+                decideAttemptDivToEnable();
+            }
+        }
+
+        function playAgain() {
+            fetch('/generateNewWordle', {
+                method: 'GET'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Reset game state
+                    resetGameState();
+                });
+        }
+
+        function resetGameState() {
+            attemptNum = 1;
+            enableTextboxes(attempt1);
+            enableTextboxes(attempt2);
+            enableTextboxes(attempt3);
+            enableTextboxes(attempt4);
+            enableTextboxes(attempt5);
+            decideAttemptDivToEnable();
+            resetCheckBtn();
+            resetAllTextboxes();
+
+            // Hide the play again button again
+            hidePlayAgainBtn();
+        }
+
+        function resetAllTextboxes() {
+            const allTextboxes = document.querySelectorAll('.square-input');
+            allTextboxes.forEach(textbox => {
+                textbox.value = '';
+                textbox.classList.remove('btn');
+                textbox.classList.remove('btn-success');
+                textbox.classList.remove('btn-warning');
+                textbox.classList.remove('btn-danger');
+                textbox.classList.add('form-control');
+            });
+        }
+
+        function makeTxtboxRed(txtbox) {
+            txtbox.classList.add('btn');
+            txtbox.classList.add('btn-danger');
+            txtbox.classList.remove('form-control');
+        }
+
+        function makeTxtboxGreen(txtbox) {
+            txtbox.classList.add('btn');
+            txtbox.classList.add('btn-success');
+            txtbox.classList.remove('form-control');
+        }
+
+        function makeTxtboxYellow(txtbox) {
+            txtbox.classList.add('btn');
+            txtbox.classList.add('btn-warning');
+            txtbox.classList.remove('form-control');
+        }
+
+        function disableCheckBtnAndMakeGreen() {
+            checkBtn.classList.add('disabled');
+            checkBtn.classList.remove('btn-outline-success');
+            checkBtn.classList.add('btn-success');
+            checkBtn.textContent = 'You won!';
+        }
+
+        function disableCheckBtnAndMakeRed() {
+            checkBtn.classList.add('disabled');
+            checkBtn.classList.remove('btn-outline-success');
+            checkBtn.classList.add('btn-danger');
+            checkBtn.textContent = 'You lost!';
+        }
+
+        function resetCheckBtn() {
+            checkBtn.classList.remove('btn-danger');
+            checkBtn.classList.remove('btn-success');
+            checkBtn.classList.add('btn-outline-success');
+            checkBtn.classList.remove('disabled');
+            checkBtn.textContent = 'Check';
+        }
+
+        function displayPlayAgainBtn() {
+            playAgainBtn.classList.remove('play-again-btn-hidden');
+        }
+
+        function hidePlayAgainBtn() {
+            playAgainBtn.classList.add('play-again-btn-hidden');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
